@@ -46,7 +46,7 @@
   /* I know it's a bad practice below here, I'm just really bad at CSS */
   height: 15px;
   width: 15px;
-  background-image: url(/assets/close_book.png);
+  background-image: url(/assets/img/close_book.png);
   background-size: cover;
   /* Hide the button itself */
   background-color: transparent;

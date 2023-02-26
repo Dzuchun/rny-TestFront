@@ -1,7 +1,8 @@
 <div id="book">
+  <link rel="preload" as="image" href="assets/img/blank_cover.png">
   <img
     id="cover"
-    onerror="this.onerror=null; this.src='assets/blank_cover.png';"
+    onerror="this.onerror=null; this.src='assets/img/blank_cover.png';"
     src="{{ book.cover }}"
     alt="No cover"
     width="50px"
@@ -16,9 +17,9 @@
 </div>
 <div id="buttons">
   <button (click)="openBook()">
-    <img src="assets/see_book.png" alt="Watch book" />
+    <img src="assets/img/see_book.png" alt="Watch book" />
   </button>
   <button (click)="editBook()">
-    <img src="assets/edit_book.png" alt="Watch book" />
+    <img src="assets/img/edit_book.png" alt="Editt book" />
   </button>
 </div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -11,6 +11,11 @@ import { ViewBookComponent } from './view-book/view-book.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { FormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ConfigService } from './service/config.service';
+
+export function initializeApp(config: ConfigService) {
+  return () => config.load();
+}
 
 @NgModule({
   declarations: [
@@ -28,8 +33,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     FormsModule,
     MatProgressSpinnerModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [
+    ConfigService,
+    { provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [ConfigService], multi: true }
+  ],
+  bootstrap: [
+    AppComponent,
+    ConfigService
+  ],
 
   entryComponents: [
     ViewBookComponent,

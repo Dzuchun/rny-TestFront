@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Book } from '.././data/book';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { ConfigService } from './config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL = "https://localhost:5000/api/";
+  private baseURL = ConfigService.settings.baseUrl + "/api/";
 
   private allBooksURL = this.baseURL + "books";
   getAllBooks(order: string): Observable<Book[]> {

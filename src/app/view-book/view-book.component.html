@@ -1,6 +1,7 @@
 <!-- Header -->
 <div id="header">
   <h2>Details</h2>
+  <link rel="preload" as="image" href="assets/img/close_book.png"> 
   <button mat-button mat-dialog-close></button>
 </div>
 
@@ -17,8 +18,9 @@
         <div id="book">
           <!-- Sideblock -->
           <div id="sideblock">
+            <link rel="preload" as="image" href="assets/img/blank_cover.png">
             <img
-              onerror="this.onerror=null; this.src='assets/blank_cover.png';"
+              onerror="this.onerror=null; this.src='assets/img/blank_cover.png';"
               src="{{ book.cover }}"
               alt="Book cover is corrupted of failed to load"
               #cover

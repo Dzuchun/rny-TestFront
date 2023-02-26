@@ -55,6 +55,8 @@
     </div>
 
     <ul>
+      <link rel="preload" as="image" href="assets/img/edit_book.png">
+      <link rel="preload" as="image" href="assets/img/see_book.png">
       <li *ngFor="let book of bookList | async">
         <!-- Yeah, this *ngIf usage looks kinda cursed, since I assume it checks loading for each book.
             But I see no other option to implement loading animation AND use async pipe -->
