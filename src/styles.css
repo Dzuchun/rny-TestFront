@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* Font settings */
+* {
+  font-family: cursive;
+  font-size: large;
+  font-weight: 100;
+}
+
+h1 {
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: x-large;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: larger;
+  font-weight: 150;
+}

@@ -1,0 +1,52 @@
+<!-- Header -->
+<div id="header">
+  <h2>Details</h2>
+  <button mat-button mat-dialog-close></button>
+</div>
+
+<!-- Main block -->
+<div id="body">
+  <div id="error" *ngIf="isError">
+    Could not load book<br />{{ errorMessage }}
+  </div>
+  <div *ngIf="!isError" style="overflow: hidden">
+    <!-- Book contents. Shown only once book is loaded. -->
+    <div *ngIf="this.data.source | async as book">
+      <!-- Another empty div just because ngIf does not like && boolean operator? -->
+      <div *ngIf="isLoaded">
+        <div id="book">
+          <!-- Sideblock -->
+          <div id="sideblock">
+            <img
+              onerror="this.onerror=null; this.src='assets/blank_cover.png';"
+              src="{{ book.cover }}"
+              alt="Book cover is corrupted of failed to load"
+              #cover
+            />
+            <p>
+              <span>Rating: {{ book.rating?.toFixed(2) }}</span>
+              <span>Reviews:{{ book.reviews?.length }}</span>
+            </p>
+          </div>
+          <!-- Book contents -->
+          <div id="book-content">
+            <h1>{{ book.title }}</h1>
+            <h3>{{ book.author }}, {{ book.genre }}</h3>
+            <p>{{ book.content }}</p>
+          </div>
+        </div>
+        <!-- Reviews block -->
+        <ul id="reviews">
+          <li *ngFor="let review of book.reviews" class="review">
+            <h2>{{ review.reviewer }}</h2>
+            <p>{{ review.message }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <mat-progress-spinner
+      *ngIf="!isLoaded"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+  </div>
+</div>

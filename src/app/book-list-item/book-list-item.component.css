@@ -1,0 +1,87 @@
+:host {
+  margin: 10px;
+  padding: 2px;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-between;
+  height: 150px;
+}
+
+#book {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-around;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+#cover {
+  margin: 10px 15px 10px 15px;
+  max-width: 40%;
+}
+
+#book-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+#book-details {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  justify-content: space-between;
+  width: 100%;
+}
+#book-details > *,
+#book-info > h1 {
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+  max-height: 30%;
+  max-width: 10%;
+}
+
+#buttons > * {
+  flex: 1 1 0;
+  background-color: transparent;
+  border-color: lightgrey;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  margin: 2px;
+  padding: 1px;
+  justify-content: center;
+  align-content: center;
+}
+
+#buttons > *:active {
+  border-width: 2px;
+  border-color: black;
+}

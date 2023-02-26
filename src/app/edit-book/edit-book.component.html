@@ -1,0 +1,49 @@
+<h2>{{ isEditing ? "Edit Book" : "Add Book" }}</h2>
+<!-- Block for inputs -->
+<div id="inputs">
+  <!-- This is a block for all inputs, except for content -->
+  <div id="inputs-non-content">
+    <p>Title</p>
+    <!-- Two-way binding is required here, since test field are both inputted and outputted data from -->
+    <input type="text" [(ngModel)]="title" />
+    <p>Cover</p>
+    <span id="cover-input">
+      <div style="white-space: nowrap">
+        <!-- I know about that text-overflow thing, it's just won't work here, for some reason -->
+        {{ stripString(cover ?? "") }}
+      </div>
+      <label
+        >Choose...
+        <!-- Two-way binding is overkill here, since files are only extracted from here -->
+        <input
+          type="file"
+          (change)="onCoverChange($event)"
+          style="display: none"
+        />
+      </label>
+    </span>
+    <p>Genre</p>
+    <input type="text" [(ngModel)]="genre" />
+    <p>Author</p>
+    <input type="text" [(ngModel)]="author" />
+  </div>
+  <!-- Block for content input -->
+  <div id="inputs-content">
+    <p>Content</p>
+    <!-- resize is added separately, as it's really specific. -->
+    <textarea style="resize: none" [(ngModel)]="content"></textarea>
+  </div>
+</div>
+<!-- Block for buttons -->
+<div id="buttons">
+  <button
+    [disabled]="isSubmitting"
+    (click)="submitBook()"
+    [style.background-color]="isEditing ? 'limegreen' : 'dodgerblue'"
+  >
+    {{ isSubmitting ? "Sumbitting..." : isEditing ? "Edit" : "Add" }}
+  </button>
+  <button (click)="updateBook({})" style="background-color: goldenrod">
+    Clear
+  </button>
+</div>

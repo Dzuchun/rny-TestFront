@@ -1,0 +1,131 @@
+:host {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+
+h2 {
+  padding: 5px;
+  border-bottom-color: black;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+#inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-evenly;
+  outline-style: solid;
+  outline-color: white;
+}
+
+#inputs > * {
+  width: 45%;
+}
+
+#inputs-non-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+#inputs-non-content > * {
+  height: 35px;
+  margin: 15px 0px 15px 0px;
+  padding: 2px;
+}
+
+#inputs-non-content > p,
+#inputs-non-content > div,
+#inputs-content > p {
+  text-align: right;
+  margin-right: 15px;
+}
+
+#inputs-non-content > span,
+#inputs-non-content > input,
+#inputs-content > textarea {
+  border-radius: 5px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+#cover-input {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: space-between;
+}
+
+#cover-input > label {
+  border-left-color: black;
+  border-left-width: 1px;
+  border-left-style: solid;
+  margin-left: 2px;
+  width: 20%;
+  text-align: center;
+}
+
+#cover-input > div {
+  width: 80%;
+}
+
+/* Content input container */
+#inputs-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#inputs-content > textarea {
+  width: 90%;
+  margin: 15px 0px 15px 0px;
+  padding: 2px;
+}
+
+#buttons {
+  margin: 15px 0px 15px 0px;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+#buttons > * {
+  color: white;
+  margin: 5px;
+  padding: 0px 20px 0px 20px;
+  height: 35px;
+  width: 150px;
+  border-radius: 5px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  background: none;
+}
+
+#buttons > *:active {
+  border-width: 2px;
+}
+
+.error {
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-name: error-animation;
+}
+
+@keyframes error-animation {
+  from {
+    outline-color: red;
+  }
+  to {
+    outline-color: white;
+  }
+}

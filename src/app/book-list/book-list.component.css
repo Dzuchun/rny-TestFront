@@ -1,0 +1,87 @@
+:host {
+  display: block;
+  margin: 0;
+  padding: 5px;
+}
+
+nav {
+  margin: 5px 5px 0 5px;
+  height: 50px;
+}
+
+nav > * {
+  height: 100%;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-left-width: 2px;
+  border-left-style: solid;
+  margin-left: 10px;
+  border-right-width: 2px;
+  border-right-style: solid;
+  margin-right: 10px;
+}
+
+nav > * > * {
+  background-color: rgba(100, 100, 200, 0.05);
+  border: none;
+}
+
+nav > *:hover {
+  background-color: aliceblue;
+}
+
+#book-list {
+  border-radius: 0;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+
+#in-progress {
+  margin: 0;
+}
+
+#non-error {
+  display: flex;
+  flex-direction: column;
+  height: 30vh; /* Yeah, I know that's a bad practice. It's just I can't figure this out other way. */
+}
+
+#book-list ul {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-wrap: normal;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+#book-list ul > * {
+  width: 50%;
+  padding: 0;
+}
+
+#book-list > *,
+#in-progress,
+mat-progress-spinner {
+  margin: auto;
+  align-self: center;
+  justify-self: center;
+}
+
+#error {
+  color: red;
+  font-size: xx-large;
+  font-weight: 900;
+  text-align: center;
+}

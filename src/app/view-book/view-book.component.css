@@ -1,0 +1,132 @@
+:host {
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.27);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  overflow: hidden;
+  height: 85vh;
+  width: 70vw;
+  border-radius: 3px;
+  border-color: black;
+  border-width: 3px;
+  border-style: solid;
+  padding: 0;
+}
+
+#body {
+  margin: 0;
+  justify-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#header {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  align-items: center;
+  border-bottom-width: 1px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+#header > h2 {
+  margin: auto;
+  justify-self: center;
+}
+
+#header > button {
+  justify-self: flex-end;
+  box-sizing: content-box;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* I know it's a bad practice below here, I'm just really bad at CSS */
+  height: 15px;
+  width: 15px;
+  background-image: url(/assets/close_book.png);
+  background-size: cover;
+  /* Hide the button itself */
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+#book {
+  display: flex;
+  flex-direction: row;
+  height: 480px;
+  margin: 10px;
+}
+
+#sideblock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  width: 30%;
+}
+
+#sideblock > img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+  margin: 0;
+  padding: 2px;
+  /* This is a cover border. I'm no designer, so I'm not sure whether it's really required here. */
+  /*
+  border-radius: 2px;
+  border-color: ghostwhite;
+  border-width: 2px;
+  border-style: solid;
+  */
+}
+
+#sideblock > p {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+#book-content {
+  max-height: 100%;
+  width: 100%;
+}
+
+#book-content > p {
+  white-space: pre-wrap;
+  overflow-y: scroll;
+  height: min-content;
+  max-height: 60%;
+  padding: 5px;
+
+  border-radius: 2px;
+  border-color: whitesmoke;
+  border-width: 3px;
+  border-style: solid;
+}
+
+#reviews {
+  height: 250px;
+  overflow-y: scroll;
+  list-style: none;
+  margin: 10px;
+}
+
+.review {
+  border-top-color: black;
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+#error {
+  color: red;
+  font-size: xx-large;
+  font-weight: 900;
+  text-align: center;
+}

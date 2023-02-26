@@ -1,0 +1,65 @@
+<!-- Button bar -->
+<nav>
+  <button
+    (click)="getAllBooks()"
+    [style.background-color]="
+      lastUpdate === getAllBooks ? 'lightgreen' : 'white'
+    "
+  >
+    Everything ordered by:
+    <select
+      (change)="allOrder = all_order.value; getAllBooks()"
+      onclick="event.stopPropagation();"
+      #all_order
+    >
+      <option value="author">author</option>
+      <option value="title">title</option>
+    </select>
+  </button>
+  <button
+    (click)="getRecommendedBooks()"
+    [style.background-color]="
+      lastUpdate === getRecommendedBooks ? 'lightgreen' : 'white'
+    "
+  >
+    Recommended from genre:
+    <select
+      type="text"
+      placeholder="all"
+      (input)="recommendedGenre = recommended_genre.value"
+      (change)="getRecommendedBooks()"
+      (focus)="updateGenres()"
+      style="min-width: 200px"
+      onclick="event.stopPropagation();"
+      #recommended_genre
+    >
+      <option value="">all</option>
+      <option *ngFor="let genre of genreList | async" value="{{ genre }}">
+        {{ genre }}
+      </option>
+    </select>
+  </button>
+</nav>
+
+<!-- Actual book list window -->
+<div id="book-list">
+  <!-- Error block -->
+  <div id="error" *ngIf="isError">
+    Coul not load list<br />{{ errorMessage }}
+  </div>
+
+  <div id="non-error" *ngIf="!isError">
+    <!-- "In progress" block -->
+    <div id="in-progress" *ngIf="!isLoaded">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+
+    <ul>
+      <li *ngFor="let book of bookList | async">
+        <!-- Yeah, this *ngIf usage looks kinda cursed, since I assume it checks loading for each book.
+            But I see no other option to implement loading animation AND use async pipe -->
+        <app-book-list-item *ngIf="isLoaded" [book]="book"></app-book-list-item>
+      </li>
+    </ul>
+  </div>
+</div>
